@@ -18,6 +18,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.opera.OperaDriver;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import Queue.SimpleQueue;
 import Tree.Node;
@@ -75,16 +77,27 @@ public class App
             WebElement searchInput = driver.findElement(By.id("txt"));
             WebElement canvas = driver.findElement(By.id("canv")); 
             TimeUnit.SECONDS.sleep(1);
-            Node<Integer> root = generateTree(maxChilds,maxNodes);
-            TimeUnit.SECONDS.sleep(2);
-            Tree<Integer> tree = new Tree<>(root);
+            Tree<Integer> tree = new Tree<>(generateTree(maxChilds,maxNodes));
+            (new WebDriverWait(driver, 10)).until(new ExpectedCondition<Boolean>() {
+                public Boolean apply(WebDriver d) {
+                    return (tree.isEmpty() == false);
+                }
+            });
             searchInput.click();
             String tmptree = tree.printTree();
-            TimeUnit.SECONDS.sleep(2);
+            (new WebDriverWait(driver, 10)).until(new ExpectedCondition<Boolean>() {
+                public Boolean apply(WebDriver d) {
+                    return tmptree.length() != 0;
+                }
+            });
             searchInput.sendKeys(Keys.BACK_SPACE+tmptree);
-            TimeUnit.SECONDS.sleep(2);
+            (new WebDriverWait(driver, 10)).until(new ExpectedCondition<Boolean>() {
+                public Boolean apply(WebDriver d) {
+                    return d.findElement(By.id("txt")).getAttribute("value").length() != 0;
+                }
+            });
             button.click();
-            TimeUnit.SECONDS.sleep(3);
+            TimeUnit.MILLISECONDS.sleep(2500);
             String src = canvas.getAttribute("src");
             if(src.isEmpty())
             {
