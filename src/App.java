@@ -67,7 +67,7 @@ public class App
     
     public static void printFiles(int max, WebDriver driver, int maxChilds, int maxNodes) throws InterruptedException, IOException
     {
-        String start = new File(".\\src\\index.html").getAbsolutePath();
+        String start = new File(".\\index.html").getAbsolutePath();
         System.out.println(start);
         driver.get(start);
         int count = 1;
