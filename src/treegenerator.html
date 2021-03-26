@@ -1,19 +1,9 @@
 <html>
 <head>
 </head>
-<body style="background-color:#faf4f6;"onload="loadimage();" >
+<body style="background-color:#faf4f6;">
    <div><textarea id="txt"></textarea>
     <br><button onclick="generate(event)">Generate Tree</button></div> 
-    <script>
-        function loadimage()
-        {
-            var url = canvas.toDataURL();
-            var newImg = document.createElement("img"); // create img tag
-            newImg.src = url;
-            canvas.setAttribute("src", url);
-        }
-        body.onload = loadImage();
-    </script>
 <canvas height="1000" width="1000" id="canv" src="">
     
 </canvas>
@@ -26,7 +16,7 @@
     var canvas=document.getElementById('canv');
     var ctx=canvas.getContext('2d');
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    var graph=[[7,6],[2,7],[4,1],[8,5],[9,4],[8,7],[5,3],[10,8],[10,4]];
+    var graph=[];
     var text=document.getElementById("txt").value;
     if(text){
     let rows=text.split('\n');
@@ -44,7 +34,7 @@
     
     var createGraph=(g)=>{
         var adj=[];
-        for(let i=0;i<=100;i++){
+        for(let i=0;i<=g.length *2;i++){
             adj.push([]);
         }
         console.log(g.length);
