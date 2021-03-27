@@ -66,7 +66,7 @@ public class Tree<T> {
      * @return The number of nodes in the tree
      */
     public int size() {
-        return getNumberOfDescendants(root) + 1;
+        return getNumberOfDescendants(root);
     }
 
     /**
