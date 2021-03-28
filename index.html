@@ -50,23 +50,23 @@
     //Draw a Circle
     var drawCircle=(x,y,r,v)=>{
         ctx.beginPath();
-        ctx.arc(y,x,r,0, 2 * Math.PI);
+        ctx.arc(y,x,1.5*r,0, 2 * Math.PI);
         ctx.stroke();
         ctx.strokeStyle="#000000"
-        ctx.fillStyle = "#ffbcbc";
+        ctx.fillStyle = "#814681";
         ctx.fill();
-        ctx.fillStyle = "blue";
+        ctx.fillStyle = "white";
         ctx.font = "bold 18px Arial";
-        ctx.fillText(v, y-6, x-2);
-        ctx.fillStyle = "#ffbcbc";
+        ctx.fillText(v, y-8, x+8);
+        ctx.fillStyle = "#814681";
     };
     //Draw a Line
     var drawLine=(x1,y1,x2,y2,r=16)=>{
-        ctx.strokeStyle = '#e79c2a';
-        ctx.moveTo(x1,y1);
-        ctx.lineTo(x2,y2);
+        ctx.strokeStyle = '#881414';
+        ctx.moveTo(x1,y1+24);
+        ctx.lineTo(x2,y2-24);
         ctx.stroke();
-        ctx.strokeStyle="#000000"
+        ctx.strokeStyle="#00002"
     };
     //Height Calculation
     var heightCalc=(g,par=0,k=1)=>{
@@ -160,7 +160,7 @@
             if(g[k][i]!=par)
             {
                 drawLine(nodeCord[k][1],nodeCord[k][0],nodeCord[g[k][i]][1],nodeCord[g[k][i]][0]);
-                drawEdges(g,k,g[k][i]);
+                drawEdges(g,k,g[k][i]);     
             }
         }
     };
