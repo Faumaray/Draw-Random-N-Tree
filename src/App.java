@@ -62,11 +62,13 @@ public class App
                 printFiles(number, driver,maxChilds,maxNodes);
                 break;
             }  
-        }        
+        }    
+        Process process = Runtime.getRuntime().exec("explorer.exe .\\OutFiles\\");  
     }
     
     public static void printFiles(int max, WebDriver driver, int maxChilds, int maxNodes) throws InterruptedException, IOException
     {
+        
         String start = new File(".\\index.html").getAbsolutePath();
         System.out.println(start);
         driver.get(start);
