@@ -21,9 +21,8 @@ import org.openqa.selenium.opera.OperaDriver;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import Queue.SimpleQueue;
-import Tree.Node;
-import Tree.Tree;
+import Queue.*;
+import Tree.*;
 
 public class App 
 {
