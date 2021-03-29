@@ -224,6 +224,7 @@ public class Tree<T> {
         SimpleQueue<Node<T>> stack1 = new SimpleQueue<>();
         String out = "1 1\n";
         stack1.add(this.getRoot());
+        System.out.println(this.getHeight());
         while (!stack1.isEmpty()) {
             Node<T> node = stack1.remove();
             if(node.equals(root))
@@ -235,7 +236,6 @@ public class Tree<T> {
             {
                 stack1.add(tnode);
             }
-            System.out.println(out);
         }
         return out;
     }
@@ -248,6 +248,13 @@ public class Tree<T> {
             leafs++;
         }
         double out = leafs/nodes;
+        if(out == Double.POSITIVE_INFINITY)
+        {
+            return 1;
+        }
+        else
+        {
         return out;
+        }
     }
 }
