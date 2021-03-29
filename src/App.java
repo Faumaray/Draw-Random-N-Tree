@@ -86,7 +86,7 @@ public class App
             });
             searchInput.click();
             String tmptree = tree.printTree();
-            (new WebDriverWait(driver, 10)).until(new ExpectedCondition<Boolean>() {
+            (new WebDriverWait(driver, 25)).until(new ExpectedCondition<Boolean>() {
                 public Boolean apply(WebDriver d) {
                     return tmptree.length() != 0;
                 }

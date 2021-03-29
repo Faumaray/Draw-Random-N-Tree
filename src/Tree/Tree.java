@@ -222,7 +222,7 @@ public class Tree<T> {
     public String printTree()
     {
         SimpleQueue<Node<T>> stack1 = new SimpleQueue<>();
-        String out = "";
+        String out = "1 1\n";
         stack1.add(this.getRoot());
         while (!stack1.isEmpty()) {
             Node<T> node = stack1.remove();
@@ -235,6 +235,7 @@ public class Tree<T> {
             {
                 stack1.add(tnode);
             }
+            System.out.println(out);
         }
         return out;
     }
